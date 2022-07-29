@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdbool.h>
 #include <stddef.h>
 
 #ifndef STRING_MALLOC
@@ -199,6 +200,18 @@ size_t string_count_within(
     const String* str, const String* sub, size_t start, size_t end);
 // TODO: #1 better abstraction for separating bytestrings and Unicode strings
 // String string_decode(const char* encoding, const String* str);
+bool string_endswith(const String* str, const String* suffix);
+bool string_endswith_after(
+    const String* str, const String* suffix, size_t start);
+bool string_endswith_within(
+    const String* str, const String* suffix, size_t start, size_t end);
+String string_expandtabs(const String* str);
+String string_expandtabs_size(const String* str, size_t tabsize);
+size_t string_find(const String* str, const String* sub);
+size_t string_find_after(const String* str, const String* sub, size_t start);
+size_t string_find_within(
+    const String* str, const String* sub, size_t start, size_t end);
+// TODO: #2 String string_format(const String* str, ...);
 
 #define STRING_CONSTANT(cstr) \
   { .str = cstr, .len = sizeof(cstr) - 1, .cap = sizeof(cstr) }
