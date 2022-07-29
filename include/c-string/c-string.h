@@ -308,6 +308,8 @@ String string_swapcase(const String* str);
 String string_title(const String* str);
 // TODO: #3 String string_translate(const String* str, const
 // StringTranslationTable* table);
+String string_upper(const String* str);
+String string_zfill(const String* str, size_t width);
 
 #define STRING_CONSTANT(cstr) \
   { .str = cstr, .len = sizeof(cstr) - 1, .cap = sizeof(cstr) }
