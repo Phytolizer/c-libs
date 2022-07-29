@@ -197,7 +197,7 @@ size_t string_count(const String* str, const String* sub);
 size_t string_count_after(const String* str, const String* sub, size_t start);
 size_t string_count_within(
     const String* str, const String* sub, size_t start, size_t end);
-// TODO: better abstraction for separating bytestrings and Unicode strings
+// TODO: #1 better abstraction for separating bytestrings and Unicode strings
 // String string_decode(const char* encoding, const String* str);
 
 #define STRING_CONSTANT(cstr) \
