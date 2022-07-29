@@ -1,5 +1,7 @@
 #pragma once
 
+#include "c-string/result.h"
+
 #include <stdbool.h>
 #include <stddef.h>
 
@@ -212,6 +214,100 @@ size_t string_find_after(const String* str, const String* sub, size_t start);
 size_t string_find_within(
     const String* str, const String* sub, size_t start, size_t end);
 // TODO: #2 String string_format(const String* str, ...);
+typedef RESULT_T(size_t, String) StringIndexResult;
+StringIndexResult string_index(const String* str, const String* sub);
+StringIndexResult string_index_after(
+    const String* str, const String* sub, size_t start);
+StringIndexResult string_index_within(
+    const String* str, const String* sub, size_t start, size_t end);
+bool string_isalnum(const String* str);
+bool string_isalpha(const String* str);
+bool string_isascii(const String* str);
+bool string_isdecimal(const String* str);
+bool string_isdigit(const String* str);
+bool string_isidentifier(const String* str);
+bool string_islower(const String* str);
+bool string_isnumeric(const String* str);
+bool string_isprintable(const String* str);
+bool string_isspace(const String* str);
+bool string_istitle(const String* str);
+bool string_isupper(const String* str);
+String string_join(const String* sep, const String* first, ...);
+String string_ljust(const String* str, size_t width);
+String string_ljust_char(const String* str, size_t width, char fillchar);
+String string_lower(const String* str);
+String string_lstrip(const String* str);
+String string_lstrip_chars(const String* str, const String* chars);
+typedef struct {
+  String left;
+  String center;
+  String right;
+} StringPartitionResult;
+StringPartitionResult string_partition(const String* str, const String* sep);
+String string_removeprefix(const String* str, const String* prefix);
+String string_removesuffix(const String* str, const String* suffix);
+String string_replace(const String* str, const String* old, const String* new);
+String string_replace_count(
+    const String* str, const String* old, const String* new, size_t count);
+size_t string_rfind(const String* str, const String* sub);
+size_t string_rfind_after(const String* str, const String* sub, size_t start);
+size_t string_rfind_within(
+    const String* str, const String* sub, size_t start, size_t end);
+StringIndexResult string_rindex(const String* str, const String* sub);
+StringIndexResult string_rindex_after(
+    const String* str, const String* sub, size_t start);
+StringIndexResult string_rindex_within(
+    const String* str, const String* sub, size_t start, size_t end);
+String string_rjust(const String* str, size_t width);
+String string_rjust_char(const String* str, size_t width, char fillchar);
+StringPartitionResult string_rpartition(const String* str, const String* sep);
+size_t string_rsplit(
+    const String* str, String* out_buffer, size_t out_buffer_size);
+size_t string_rsplit_sep(const String* str,
+    const String* sep,
+    String* out_buffer,
+    size_t out_buffer_len);
+size_t string_rsplit_max(const String* str,
+    size_t maxsplit,
+    String* out_buffer,
+    size_t out_buffer_len);
+size_t string_rsplit_sep_max(const String* str,
+    const String* sep,
+    size_t maxsplit,
+    String* out_buffer,
+    size_t out_buffer_len);
+String string_rstrip(const String* str);
+String string_rstrip_chars(const String* str, const String* chars);
+size_t string_split(
+    const String* str, String* out_buffer, size_t out_buffer_size);
+size_t string_split_sep(const String* str,
+    const String* sep,
+    String* out_buffer,
+    size_t out_buffer_len);
+size_t string_split_max(const String* str,
+    size_t maxsplit,
+    String* out_buffer,
+    size_t out_buffer_len);
+size_t string_split_sep_max(const String* str,
+    const String* sep,
+    size_t maxsplit,
+    String* out_buffer,
+    size_t out_buffer_len);
+size_t string_splitlines(
+    const String* str, String* out_buffer, size_t out_buffer_size);
+size_t string_splitlines_keepends(
+    const String* str, String* out_buffer, size_t out_buffer_size);
+bool string_startswith(const String* str, const String* prefix);
+bool string_startswith_after(
+    const String* str, const String* prefix, size_t start);
+bool string_startswith_within(
+    const String* str, const String* prefix, size_t start, size_t end);
+String string_strip(const String* str);
+String string_strip_chars(const String* str, const String* chars);
+String string_swapcase(const String* str);
+String string_title(const String* str);
+// TODO: #3 String string_translate(const String* str, const
+// StringTranslationTable* table);
 
 #define STRING_CONSTANT(cstr) \
   { .str = cstr, .len = sizeof(cstr) - 1, .cap = sizeof(cstr) }
