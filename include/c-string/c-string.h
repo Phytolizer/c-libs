@@ -191,7 +191,6 @@ String string_dup(const String* str);
 void string_free(String* str);
 String string_concat(const String* a, const String* b);
 String string_concat_many(const String* first, ...);
-
 String string_capitalize(const String* str);
 String string_casefold(const String* str);
 String string_center(const String* str, size_t width);

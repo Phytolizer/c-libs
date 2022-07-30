@@ -23,6 +23,7 @@ Checks: |
   -readability-inconsistent-declaration-parameter-name,
   -readability-non-const-parameter,
   -readability-function-cognitive-complexity,
+  -readability-magic-numbers,
 WarningsAsErrors: ""
 CheckOptions:
   - key: "bugprone-argument-comment.StrictMode"
